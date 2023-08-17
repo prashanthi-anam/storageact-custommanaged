@@ -25,6 +25,7 @@ resource "azurerm_subnet" "storage" {
   resource_group_name  = azurerm_resource_group.example.name
   virtual_network_name = azurerm_virtual_network.example.name
   address_prefixes     = ["10.0.3.0/24"]
+  enforce_private_link_endpoint_network_policies = true
 }
 
 resource "azurerm_network_interface" "example" {
