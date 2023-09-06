@@ -140,7 +140,7 @@ resource "azurerm_private_dns_zone_virtual_network_link" "example" {
   private_dns_zone_name = azurerm_private_dns_zone.example.name
   virtual_network_id    = azurerm_virtual_network.vnet1.id
 }
-/*resource "null_resource" "install_tomcat" {
+resource "null_resource" "install_tomcat" {
   triggers = {
     instance_id = azurerm_linux_virtual_machine.example.id
   }
@@ -171,4 +171,4 @@ resource "azurerm_private_dns_zone_virtual_network_link" "example" {
   }
 
   depends_on = [azurerm_linux_virtual_machine.example, azurerm_public_ip.publicip]
-}*/
+}
