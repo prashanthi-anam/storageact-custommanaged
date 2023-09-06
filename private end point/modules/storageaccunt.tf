@@ -12,13 +12,7 @@ resource "azurerm_role_assignment" "role_assignments" {
   principal_id         = data.azurerm_client_config.example.object_id
   depends_on = [ azurerm_key_vault.key_vault ]
 }
-resource "azurerm_role_assignment" "role_assignments1" {
 
-  scope                = azurerm_key_vault.key_vault.id
-  role_definition_name = "Key Vault Administrator"
-  principal_id         = data.azurerm_client_config.example.object_id
-  depends_on = [ azurerm_key_vault.key_vault ]
-}
 
 resource "azurerm_role_assignment" "example" {
   principal_id         = data.azurerm_client_config.example.object_id
@@ -102,7 +96,7 @@ resource "azurerm_storage_account_network_rules" "example" {
     "49.204.2.89", # Example: Allow specific IP range
   ]
 
-  # Define virtual network and subnet rules (if needed)
+  # Define virtual network and subnet rules
   virtual_network_subnet_ids = [
     azurerm_subnet.vm_subnet.id, azurerm_subnet.storage.id # Example: Allow traffic from a specific subnet
   ]
